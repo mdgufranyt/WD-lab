@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .cart-container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 300px;
+            max-width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .cart-container h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .cart-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .cart-item span {
+            flex-grow: 1;
+        }
+
+        .total {
+            margin-top: 20px;
+            text-align: right;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cart-container">
+        <h2>Shopping Cart</h2>
+        <ul class="cart-list" id="cart-list">
+            <!-- Cart items will be dynamically added here -->
+        </ul>
+        <div class="total" id="total">Total: $0.00</div>
+        <button onclick="calculateTotal()">Calculate Total</button>
+    </div>
+
+    <script>
+        function calculateTotal() {
+            // Get all the prices from the items and calculate the total
+            var items = document.querySelectorAll('.cart-item');
+            var total = 0;
+
+            items.forEach(function (item) {
+                var price = parseFloat(item.dataset.price);
+                total += price;
+            });
+
+            // Display the total in the total element
+            document.getElementById('total').innerText = 'Total: $' + total.toFixed(2);
+        }
+
+        // Function to add an item to the cart
+        function addItem(name, price) {
+            var cartList = document.getElementById('cart-list');
+            var listItem = document.createElement('li');
+            listItem.classList.add('cart-item');
+            listItem.dataset.price = price;
+
+            listItem.innerHTML = `
+                <span>${name}</span>
+                <span>$${price.toFixed(2)}</span>
+            `;
+
+            cartList.appendChild(listItem);
+        }
+
+        // Example items
+        addItem('Mathematics',   19.99);
+        addItem('Physics',       29.99);
+        addItem('Chemistry',     14.99);
+        addItem('Biology',       14.99);
+    </script>
+</body>
+
+</html>
