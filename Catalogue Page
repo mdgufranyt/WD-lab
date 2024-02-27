@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books Library</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Books Library</h1>
+    </header>
+    <main>
+        <section class="book">
+            <img src="book1.jpg" alt="Book 1">
+            <h2>Book Title 1</h2>
+            <p>Author: Author Name</p>
+            <p>Published: 2024</p>
+            <button>Details</button>
+        </section>
+        <section class="book">
+            <img src="book2.jpg" alt="Book 2">
+            <h2>Book Title 2</h2>
+            <p>Author: Author Name</p>
+            <p>Published: 2023</p>
+            <button>Details</button>
+        </section>
+        <!-- Add more book sections as needed -->
+    </main>
+    <footer>
+        <p>&copy; 2024 Books Library</p>
+    </footer>
+</body>
+</html>
+
+
+**CSS:**
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header, footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.book {
+    width: 300px;
+    margin: 1rem;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.book img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+This example provides a basic layout for a books library catalog page. You can customize it further to include more details about each book, such as a summary, genre, or availability status
